@@ -1,0 +1,55 @@
+/* product.css */
+.product {
+   
+    margin: 20px;
+    
+}
+  
+  .product__rating {
+    color: gold;
+    font-size: 1.5em;
+  }
+  
+  .product__rating::before {
+    content: '\2605\2605\2605\2605\2605';
+  }
+  
+  /* home.css */
+  
+  
+  .container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around; /* Разпределя елементите хоризонтално */
+  }
+  
+  .home_row {
+    display: flex;
+    justify-content: space-around; /* Разпределя елементите във всяка "редица" хоризонтално */
+    margin-top: 20px; /* Променете според вашите предпочитания за разстояние между редовете */
+  }
+
+  .product_img {
+    
+    object-fit: contain;
+    margin: 20px 0 0 15px;
+  }
+
+.add-to-cart-button,
+.details-button {
+  display: inline-block;
+  padding: 8px 16px;
+  font-size: 14px;
+  text-align: center;
+  text-decoration: none;
+  background-color: #007bff; /* Променете цвета на фона според вашия дизайн */
+  color: #fff; /* Променете цвета на текста според вашия дизайн */
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.add-to-cart-button:hover,
+.details-button:hover {
+  background-color: #0056b3; /* Променете цвета на фона при ховър според вашия дизайн */
+}

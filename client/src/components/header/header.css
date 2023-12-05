@@ -1,0 +1,47 @@
+/* header.css */
+
+
+
+/* Стилове за "Home page" */
+
+.home-link {
+  margin-right: 50px;
+  color: black; /* Черен текст за "Home page" */
+}
+
+/* header__navbar стилове (ако е нужно) */
+.header__navbar {
+  background-color: #7fb3d5; /* Светло син цвят на лентата */
+}
+
+.navbar-brand,
+.nav-link {
+  color: black !important; /* Черен цвят на текста */
+}
+
+.navbar-toggler-icon {
+  font-size: 1.5em; /* Увеличаване на размера на иконите */
+}
+
+.nav-link {
+  margin-right: 10px; /* Добавя отстояние между връзките */
+}
+
+/* Стилове за "About" */
+.about-link {
+  margin-right: 10px;
+  color: black;  /* Черен текст за "About" */
+}
+
+/* Стилове за "Catalog" */
+.catalog-link {
+  margin-right: 10px;
+  color: black; /* Черен текст за "Catalog" */
+}
+
+/* Стилове за "Blog" */
+.blog-link {
+  color: black;  /* Черен текст за "Blog" */
+}
+
+/* end header__navbar styles */

@@ -1,0 +1,92 @@
+.info-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .details-comments {
+    width: 100%;
+    max-width: 600px; /* Adjust the maximum width as needed */
+    margin-top: 20px;
+  }
+  
+  .details-comments li {
+    width: 100%;
+    box-shadow: 8px 8px 8px 0 rgba(0, 0, 0, 0.2), 12px 12px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 16px;
+    background: #7fb2f0;
+    color: white;
+    margin: 20px 0;
+    padding: 16px;
+  }
+  
+  /* Update for add comment form */
+  .create-comment {
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Добави този ред, за да центрираш вертикално */
+    text-align: center;
+    width: 100%;
+    max-width: 1000px; /* Промени този размер, ако е необходимо */
+    margin: 0 auto; /* Добави този ред, за да центрираш хоризонтално */
+    padding: 20px;
+    box-sizing: border-box;
+    background: #7fb2f0;
+    box-shadow: 0px 0px 32px 0px #32485e, -14px -14px 20px #191c21;
+    border-radius: 20px;
+  }
+  
+  .create-comment > label {
+    color: white;
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  
+  .create-comment > .form > textarea {
+    resize: none;
+    width: 100%;
+    height: 100px;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    padding: 10px;
+  }
+  
+  .create-comment > .form > input {
+    width: 100%;
+    padding: 10px;
+    background-color: #41425c;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .create-comment > .form > input:hover {
+    background-color: #333347;
+  }
+
+  .product {
+    width: 18rem;
+    margin: 0 auto; /* Центриране хоризонтално */
+  }
+  
+  .product_img {
+    width: 100%; /* Направи картинката 100% ширина на родителя */
+    height: auto; /* Поддържай съотношението на страните */
+    max-height: 300px; /* Примерен максимален височинен лимит (промени според нуждите си) */
+    margin-bottom: 15px; /* Примерен маргин, можеш да го промениш според нуждите си */
+  }
+  
+  .product__price {
+    margin-top: 10px; /* Примерен маргин, можеш да го промениш според нуждите си */
+    font-size: 18px; /* Примерен размер на шрифта, можеш да го промениш според нуждите си */
+  }
+
+  #game-details h1 {
+    text-align: center;
+    margin-bottom: 20px; /* Примерен маргин, можеш да го промениш според нуждите си */
+  }
