@@ -18,7 +18,7 @@ const reducer = (state,action) => {
     case "ADD_COMMENT":
           return [...state, action.payload]
     case "UPDATE_COMMENT":
-      console.log(action.payload);
+      
       if (action.payload && action.payload._id) {
         return state.map((comment) =>
           comment._id === action.payload._id ? { ...comment, ...action.payload } : comment
@@ -58,13 +58,13 @@ const Details = () => {
           })
       })
    },[productId])
+
  const addCommentHandler = async (values) => {
   
  const newComment =  await commentService.create(
     productId,
     values.comment,
   )
-  console.log(newComment);
     newComment.owner = {email}
   // setComments(state => [...state,{...newComment,author: {email}}])
     dispatch({
@@ -77,9 +77,10 @@ const Details = () => {
   comment: "",
  }),[])
 
- const{values,onChange,onSubmit} = useForm(addCommentHandler,initialValues)
+const{values,onChange,onSubmit} = useForm(addCommentHandler,initialValues)
 
 const handleEditComment = (editedComment) => {
+  const commentToEdit = comments.find((comment) => comment._id === editingComment._id)
   // const commentToEdit = comments.find((comment) => {
   //   console.log({commentID: comment._id});
   //   console.log(_id);
@@ -87,23 +88,27 @@ const handleEditComment = (editedComment) => {
   //   comment._id === _id
   // });
   console.log(editingComment);
+  console.log(commentToEdit);
   setEditingComment(editedComment);
   setShowEditModal(true);
-  addEditedComment({ _id: editingComment._id, text: editingComment.text });
+  addEditedComment({ _id: editingComment._id, text: editingComment.text, productId: commentToEdit.productId });
 };
 
 const handleSaveEditedComment = async (updatedComment) => {
-  console.log(updatedComment);
   try{
-    const updatesComment = await commentService.updateComment(updatedComment._id,updatedComment.text)
+    const updatesComment = await commentService.updateComment(updatedComment._id,updatedComment.text, updatedComment.productId)
 
     dispatch({
       type: "UPDATE_COMMENT",
       payload: updatesComment
     })
+
+    
   } catch(err) {
     console.log(err);
   }
+
+ 
     
 
     
@@ -174,7 +179,7 @@ const handleDeleteComment = async (commentId) => {
                         <p>{email}: {text}</p>
                         {userId === _ownerId && (
                           <div className='buttonsEditAndDelete'>
-                                <button onClick={() => handleEditComment({ _id, text})}>
+                                <button onClick={() => handleEditComment({ _id, text, productId})}>
                                             Edit
                                 </button>
                                 <button onClick={() => handleDeleteComment(_id)}>Delete</button>

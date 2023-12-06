@@ -24,11 +24,11 @@ export const getAll = async (productId) => {
 
 
 
-export const updateComment = async (commentId, updatedText ) => {
+export const updateComment = async (commentId, updatedText,productId ) => {
     const result = await request.put(`${baseUrl}/${commentId}`, {
-        text: updatedText
+        text: updatedText,
+        productId: productId
     })
-        console.log(result);
     return result;
 }
 

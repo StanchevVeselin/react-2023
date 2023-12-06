@@ -5,11 +5,14 @@ const reducer = (state,action) => {
             case "ADD_COMMENT":
                   return [...state, action.payload];
             case "UPDATE_COMMENT":
-                        console.log(action.payload);
+                        
                         if (action.payload && action.payload._id) {
-                            return state.map((comment) =>
+                            console.log(state);
+                            const asd = state.map((comment) =>
                                 comment._id === action.payload._id ? action.payload.text : comment
                             );
+                            console.log(asd);
+                            return asd
                         } else {
                             console.error("Invalid action payload for UPDATE_COMMENT:", action.payload);
                             return state;
