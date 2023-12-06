@@ -1,39 +1,14 @@
 import { useContext, useEffect, useMemo, useReducer, useState } from 'react';
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Link, useParams } from "react-router-dom";
 import * as productsService from "../../services/productsService"
 import * as commentService from "../../services/commentService"
 import "./details.css"
 import AuthContext from '../../context/authData';
-// import reducer from './reducer';
+import reducer from './reducer';
 import { useForm } from '../../hooks/useForm';
 import EditCommentModal from '../editComments/EditComment';
 import useEditedComments from '../../hooks/useEditedComment';
-
-const reducer = (state,action) => {
-  switch (action?.type) {
-    case "GET_ALL_PRODUCTS":
-          return [...action.payload];
-    case "ADD_COMMENT":
-          return [...state, action.payload]
-    case "UPDATE_COMMENT":
-      
-      if (action.payload && action.payload._id) {
-        return state.map((comment) =>
-          comment._id === action.payload._id ? { ...comment, ...action.payload } : comment
-        );
-      } else {
-        console.error("Invalid action payload for UPDATE_COMMENT:", action.payload);
-        return state;
-      }
-      case "DELETE_COMMENT":
-        return state.filter(comment => comment._id !== action.payload);
-default:
-        return state;
-    
-  }
-}
 
 const Details = () => {
   const{email, userId} = useContext(AuthContext)
