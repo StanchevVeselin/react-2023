@@ -13,7 +13,11 @@ const Logout = () => {
                 logoutHandler()
                 navigate("/")    
             })
-            .catch(() => navigate("/"))
+        .catch(() => {
+            logoutHandler()
+
+            navigate("/login")}
+            )
     },[])
 }
 

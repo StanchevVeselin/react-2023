@@ -93,12 +93,15 @@ const handleSaveEditedComment = async (updatedComment) => {
 
 
 const handleDeleteComment = async (commentId) => {
+  const isConfirmed = confirm("Are you sure you want to delete this comment?")
   try {
-    await commentService.deleteComment(commentId);
-    dispatch({
-      type: "DELETE_COMMENT",
-      payload: commentId
-    });
+    if(isConfirmed) {
+      await commentService.deleteComment(commentId);
+      dispatch({
+        type: "DELETE_COMMENT",
+        payload: commentId
+      });
+    }
   } catch (error) {
     console.error("Error deleting comment:", error);
   }
