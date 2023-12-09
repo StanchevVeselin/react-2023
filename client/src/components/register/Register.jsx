@@ -1,8 +1,10 @@
-import { Link } from "react-router-dom";
-import "./register.css" 
 import { useContext } from "react";
+import { Link } from "react-router-dom";
+
 import AuthContext from "../../context/authData";
 import { useForm } from "../../hooks/useForm";
+
+import "./register.css" 
 
 const Register = () => {
     const {registerHandler} = useContext(AuthContext)

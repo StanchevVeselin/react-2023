@@ -1,14 +1,17 @@
 import { useContext, useEffect, useMemo, useReducer, useState } from 'react';
-import Card from 'react-bootstrap/Card';
 import { Link, useParams } from "react-router-dom";
+import Card from 'react-bootstrap/Card';
+
 import * as productsService from "../../services/productsService"
 import * as commentService from "../../services/commentService"
-import "./details.css"
+
 import AuthContext from '../../context/authData';
 import reducer from './reducer';
 import { useForm } from '../../hooks/useForm';
-import EditCommentModal from '../editComments/EditComment';
 import useEditedComments from '../../hooks/useEditedComment';
+
+import EditCommentModal from '../editComments/EditComment';
+import "./details.css"
 
 const Details = () => {
   const{email, userId} = useContext(AuthContext)

@@ -1,6 +1,6 @@
-import Product from "../productCard/Product";
 import { useState,useEffect } from "react";
 import * as productsService from "../../services/productsService"
+import Product from "../productCard/Product";
 import "./Catalog.css"
 
 const Catalog = () => {

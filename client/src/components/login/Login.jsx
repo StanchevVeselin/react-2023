@@ -1,8 +1,10 @@
 import { Link } from "react-router-dom";
-import  {useForm}  from "../../hooks/useForm";
-import "./login.css" 
 import { useContext } from "react";
+
+import  {useForm}  from "../../hooks/useForm";
 import AuthContext from "../../context/authData";
+
+import "./login.css" 
 
 const Login = () => {
     const {loginHandler} = useContext(AuthContext)

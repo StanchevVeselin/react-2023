@@ -1,11 +1,13 @@
 import { useContext } from "react";
-import "./header.css"
+import { Link } from "react-router-dom";
 import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
-import { Link } from "react-router-dom";
+
 import AuthContext from "../../context/authData";
 import {useCart} from "../../context/cartContext"
+
+import "./header.css"
 
 const Header = () => {
   const{username,isAuthenticated} = useContext(AuthContext)
