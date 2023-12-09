@@ -25,7 +25,6 @@ const Header = () => {
           <Nav className="me-auto">
             <Link to="/about" className="about-link">About</Link>
             <Link to="/catalog" className="catalog-link">Catalog</Link>
-            <Link to="/blog" className="blog-link">Blog</Link>
 
           </Nav>
           <Nav className="ml-auto">
