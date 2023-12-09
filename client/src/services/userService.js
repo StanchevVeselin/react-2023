@@ -1,6 +1,6 @@
 import * as request from "../library/request"
-
 const baseUrl = "http://localhost:3030/users"
+
 
 const isValidEmail = (email) => {
     // Регулярен израз за проверка на валидност на имейл
@@ -10,8 +10,9 @@ const isValidEmail = (email) => {
 
 export const login = async (email, password) => {
     if (!email || !password) {
-      console.error("Email and password are required.");
-      return { error: "Email and password are required." };
+        alert("All fields are required.");  
+        console.error("Email and password are required.");
+        return { error: "Email and password are required." };
     }
   
     try {
@@ -29,19 +30,23 @@ export const login = async (email, password) => {
 
 
 export const register = async (email, password, repassword) => {
+
     if (!email || !password || !repassword) {
-      console.error("Email, password, and repassword are required.");
-      return { error: "Email, password, and repassword are required." };
+        alert("All fields are required.");
+        console.error("Email, password, and repassword are required.");
+        return { error: "Email, password, and repassword are required." };
     }
 
     if (!isValidEmail(email)) {
+        alert("Invalid email address.");
         console.error("Invalid email address.");
         return { error: "Invalid email address." };
     }
   
     if (password !== repassword) {
-      console.error("Passwords do not match.");
-      return { error: "Passwords do not match." };
+        alert("Passwords do not match.");
+        console.error("Passwords do not match.");
+        return { error: "Passwords do not match." };
     }
   
     try {
@@ -49,6 +54,13 @@ export const register = async (email, password, repassword) => {
         email,
         password,
       });
+
+      if (result.error) {
+        alert(result.error);
+        // Останете на текущата страница при грешка
+      } else {
+        // Навигирайте към друга страница при успешна регистрация
+      }
   
       return result;
     } catch (error) {
