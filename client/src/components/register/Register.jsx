@@ -19,7 +19,6 @@ const Register = () => {
             <Link to='/register'
              style={{ textDecoration: "none" }}>
                 <div className="login__logo">
-                    {/* <StorefrontIcon className="login__logoImage" fontSize="large" /> */}
                     <h2 className="login__logoTitle">eSHOP</h2>
                 </div>
             </Link>
@@ -34,7 +33,6 @@ const Register = () => {
                     name="email" 
                     onChange={onChange}
                     value={values.email} 
-                    // onChange={e => setEmail(e.target.value)} 
                     />
 
                     <h5>Password</h5>
@@ -43,7 +41,6 @@ const Register = () => {
                     name="password" 
                     onChange={onChange}
                     value={values.password}  
-                    // onChange={e => setPassword(e.target.value)}
                      />
 
                     <h5>RePassword</h5>
@@ -52,13 +49,11 @@ const Register = () => {
                     name="repassword"
                     onChange={onChange}
                     value={values.repassword} 
-                    // onChange={e => setPassword(e.target.value)}
                      />
 
                     <button 
                     type='submit' 
                     className='login__signInButton' 
-                    // onClick={signIn}
                     >Create Account
                     </button>
                 </form>
@@ -68,10 +63,7 @@ const Register = () => {
                     see our Privacy Notice, our Cookies Notice and our Interest-Based Ads Notice.
                 </p>
 
-                <button 
-                className='login__registerButton' 
-                // onClick={register}
-                >Create your eShop Account</button>
+               
             </div>
         </div>
     )

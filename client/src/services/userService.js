@@ -1,9 +1,9 @@
+import { useNavigate } from "react-router-dom";
 import * as request from "../library/request"
 const baseUrl = "http://localhost:3030/users"
 
 
 const isValidEmail = (email) => {
-    // Регулярен израз за проверка на валидност на имейл
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   };
@@ -30,7 +30,6 @@ export const login = async (email, password) => {
 
 
 export const register = async (email, password, repassword) => {
-
     if (!email || !password || !repassword) {
         alert("All fields are required.");
         console.error("Email, password, and repassword are required.");

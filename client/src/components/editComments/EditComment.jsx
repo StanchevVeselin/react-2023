@@ -2,7 +2,6 @@ import { useState } from "react";
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
-// import * as commentService from"../../services/commentService"
 
 const EditCommentModal = ( {comment, onSave, onClose, onUpdateComment} ) => {
   const [editedComment, setEditedComment] = useState(comment);
@@ -12,7 +11,6 @@ const EditCommentModal = ( {comment, onSave, onClose, onUpdateComment} ) => {
   };
 
   const handleSave = async () => {
-    // await saveOldComment()
     onSave(editedComment);
 
     onUpdateComment(editedComment)

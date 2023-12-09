@@ -6,7 +6,6 @@ import AuthContext from "../../context/authData";
 
 const Login = () => {
     const {loginHandler} = useContext(AuthContext)
-    // const [loginError, setLoginError] = useState("");
 
     const {values,onChange,onSubmit} = useForm(loginHandler,{
         email: "",
@@ -18,7 +17,6 @@ const Login = () => {
             <Link to='/login'
              style={{ textDecoration: "none" }}>
                 <div className="login__logo">
-                    {/* <StorefrontIcon className="login__logoImage" fontSize="large" /> */}
                     <h2 className="login__logoTitle">eSHOP</h2>
                 </div>
             </Link>
@@ -31,8 +29,6 @@ const Login = () => {
                     <input 
                     type='text' 
                     name="email"
-                    // value={email} 
-                    // onChange={e => setEmail(e.target.value)} 
                     onChange={onChange}
                     value={values.email}
                     />
@@ -40,8 +36,6 @@ const Login = () => {
                     <h5>Password</h5>
                     <input type='password' 
                     name="password"
-                    // value={password} 
-                    // onChange={e => setPassword(e.target.value)}
                     onChange={onChange}
                     value={values.password}
                      />
@@ -49,7 +43,6 @@ const Login = () => {
                     <button 
                     type='submit' 
                     className='login__signInButton' 
-                    // onClick={signIn}
                     >Sign In
                     </button>
                 </form>
@@ -59,10 +52,11 @@ const Login = () => {
                     see our Privacy Notice, our Cookies Notice and our Interest-Based Ads Notice.
                 </p>
 
-                <button 
-                className='login__registerButton' 
-                // onClick={register}
-                >Create your eShop Account</button>
+                <button className='login__registerButton'>
+                        <Link to='/register' style={{ textDecoration: "none", color: "inherit" }}>
+                            Create your eShop Account
+                        </Link>
+                </button>
             </div>
         </div>
     )

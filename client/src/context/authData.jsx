@@ -13,19 +13,35 @@ export const AuthProvider = ({children}) => {
     })
 
     const loginHandler = async (values) => {
-     const result = await userService.login(values.email,values.password)
-     setAuth(result);
-     localStorage.setItem("accessToken", result.accessToken)
-     navigate("/")
+    try {
+      const result = await userService.login(values.email, values.password);
+  
+      if (result.error) {
+        alert(result.error);
+      } else {
+        setAuth(result);
+        localStorage.setItem("accessToken", result.accessToken);
+        navigate("/");
+      }
+    } catch (error) {
+      console.error("Error during login:", error);
+    }
     }
 
     const registerHandler = async (values) => {
-      const result = await userService.register(values.email,values.password,values.repassword)
-      setAuth(result);
-
-      localStorage.setItem("accessToken", result.accessToken)
-
-      navigate("/")
+      try {
+        const result = await userService.register(values.email, values.password, values.repassword);
+        
+        if (result.error) {
+          alert(result.error);
+        } else {
+          setAuth(result);
+          localStorage.setItem("accessToken", result.accessToken);
+          navigate("/");
+        }
+      } catch (error) {
+        console.error("Error during registration:", error);
+      }
      }
 
      const logoutHandler = () => {
