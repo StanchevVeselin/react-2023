@@ -46,7 +46,7 @@ const Details = () => {
             payload: newComment
         })
     }catch(err) {
-      console.error("Error adding comment:", error);
+      console.error("Error adding comment:", err);
     }
   }
 

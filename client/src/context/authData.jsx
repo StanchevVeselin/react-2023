@@ -20,7 +20,7 @@ export const AuthProvider = ({children}) => {
     }
 
     const registerHandler = async (values) => {
-      const result = await userService.register(values.email,values.password)
+      const result = await userService.register(values.email,values.password,values.repassword)
       setAuth(result);
 
       localStorage.setItem("accessToken", result.accessToken)

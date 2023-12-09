@@ -6,6 +6,8 @@ import AuthContext from "../../context/authData";
 
 const Login = () => {
     const {loginHandler} = useContext(AuthContext)
+    // const [loginError, setLoginError] = useState("");
+
     const {values,onChange,onSubmit} = useForm(loginHandler,{
         email: "",
         password: ""

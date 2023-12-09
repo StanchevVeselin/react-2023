@@ -12,7 +12,6 @@ const Catalog = () => {
           setProducts(result)
           })
     },[])
-    console.log(products);
 
     return (
         <>

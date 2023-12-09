@@ -11,6 +11,9 @@ const Register = () => {
         password: "",
         repassword: "",
     })
+
+
+
     return (
         <div className='register'> 
             <Link to='/register'
@@ -45,7 +48,7 @@ const Register = () => {
 
                     <h5>RePassword</h5>
                     <input 
-                    type='repassword'
+                    type='password'
                     name="repassword"
                     onChange={onChange}
                     value={values.repassword} 

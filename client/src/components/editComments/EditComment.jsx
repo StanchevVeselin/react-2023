@@ -15,7 +15,6 @@ const EditCommentModal = ( {comment, onSave, onClose, onUpdateComment} ) => {
     // await saveOldComment()
     onSave(editedComment);
 
-    console.log(editedComment);
     onUpdateComment(editedComment)
     handleClose()
     
@@ -27,14 +26,7 @@ const EditCommentModal = ( {comment, onSave, onClose, onUpdateComment} ) => {
         );
   };
 
-//   const saveOldComment = async () => {
-//     try {
-//       // Предполагам, че commentService.update изисква _id на коментара и новият текст
-//       await commentService.updateComment(editedComment._id, editedComment.text);
-//     } catch (error) {
-//       console.error("Error saving old comment", error);
-//     }
-//   };
+
 
   return (
     <Modal 
