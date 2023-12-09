@@ -28,15 +28,15 @@ const Header = () => {
             <Link to="/blog" className="blog-link">Blog</Link>
 
           </Nav>
-          <Nav>
+          <Nav className="ml-auto">
           {!isAuthenticated && (
-            <div id="user">
+            <div id="guest">
                         <Link to="/login">Login</Link>
                         <Link to="/register">Register</Link>
             </div>
           )}
             {isAuthenticated && (
-            <div id="guest">
+            <div id="user">
               <Link to="/logout">Logout</Link>
               <span>{username}</span>
             </div>

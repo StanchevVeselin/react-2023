@@ -14,7 +14,6 @@ const Details = () => {
   const{email, userId} = useContext(AuthContext)
   const[product, setProduct] = useState({})
   const[comments,dispatch] = useReducer(reducer,[])
-  // const[comments,setComments] = useState({})
   const [editingComment, setEditingComment] = useState("");
   const [showEditModal, setShowEditModal] = useState(false);
   const { editedComments, addEditedComment, removeEditedComment } = useEditedComments();
@@ -34,42 +33,38 @@ const Details = () => {
       })
    },[productId])
 
- const addCommentHandler = async (values) => {
-  
- const newComment =  await commentService.create(
-    productId,
-    values.comment,
-  )
-    newComment.owner = {email}
-  // setComments(state => [...state,{...newComment,author: {email}}])
-    dispatch({
-      type: "ADD_COMMENT",
-      payload: newComment
-    })
- }
+  const addCommentHandler = async (values) => {
+    try {
+        const newComment =  await commentService.create(
+        productId,
+        values.comment,
+        )
+        newComment.owner = {email}
 
- const initialValues = useMemo(() => ({
+        dispatch({
+            type: "ADD_COMMENT",
+            payload: newComment
+        })
+    }catch(err) {
+      console.error("Error adding comment:", error);
+    }
+  }
+
+  const initialValues = useMemo(() => ({
   comment: "",
- }),[])
+  }),[])
 
-const{values,onChange,onSubmit} = useForm(addCommentHandler,initialValues)
+  const{values,onChange,onSubmit} = useForm(addCommentHandler,initialValues)
 
-const handleEditComment = (editedComment) => {
+  const handleEditComment = (editedComment) => {
   const commentToEdit = comments.find((comment) => comment._id === editingComment._id)
-  // const commentToEdit = comments.find((comment) => {
-  //   console.log({commentID: comment._id});
-  //   console.log(_id);
-  //   console.log(comment);
-  //   comment._id === _id
-  // });
-  console.log(editingComment);
-  console.log(commentToEdit);
+ 
   setEditingComment(editedComment);
   setShowEditModal(true);
   addEditedComment({ _id: editingComment._id, text: editingComment.text, productId: commentToEdit.productId });
 };
 
-const handleSaveEditedComment = async (updatedComment) => {
+  const handleSaveEditedComment = async (updatedComment) => {
   try{
     const updatesComment = await commentService.updateComment(updatedComment._id,updatedComment.text, updatedComment.productId)
 
@@ -91,19 +86,18 @@ const handleSaveEditedComment = async (updatedComment) => {
   setShowEditModal(false);
 };
 
-
-const handleDeleteComment = async (commentId) => {
+  const handleDeleteComment = async (commentId) => {
   const isConfirmed = confirm("Are you sure you want to delete this comment?")
   try {
-    if(isConfirmed) {
-      await commentService.deleteComment(commentId);
-      dispatch({
-        type: "DELETE_COMMENT",
-        payload: commentId
-      });
-    }
-  } catch (error) {
-    console.error("Error deleting comment:", error);
+      if(isConfirmed) {
+        await commentService.deleteComment(commentId);
+        dispatch({
+          type: "DELETE_COMMENT",
+          payload: commentId
+        });
+      }
+  }catch(error) {
+      console.error("Error deleting comment:", error);
   }
 }
 
@@ -127,28 +121,19 @@ const handleDeleteComment = async (commentId) => {
       </article>
 
 
-      {/* // <section id="game-details"> */}
       <h1>Comments for Product:</h1>
       <div className="info-section">
 
           <div className="game-header">
-              <img className="game-img" 
-              // src={game.imageUrl}
-               />
-              {/* <h1>{product.title}</h1>
-              <span className="levels">MaxLevel: </span>
-              <p className="type">${product.price}</p> */}
+              <img className="game-img" />
           </div>
 
           <p className="text">
           {product.desc}
           </p>
 
-          {/* <!-- Bonus ( for Guests and Users ) --> */}
           <div className="details-comments">
-              {/* <h2>Comments:</h2> */}
               <ul>
-                  {/* <!-- list all comments for current game (If any) --> */}
                   
 
                       
@@ -165,35 +150,19 @@ const handleDeleteComment = async (commentId) => {
                         )}
                        </li>
                       ))}
-                  
-                  {/* <li className="comment">
-                      <p>Content: I rate this one quite highly.</p>
-                  </li> */}
               </ul>
 
                       {comments.length === 0 && (
                         <p className="no-comment">No comments.</p>
                       )}
 
-              {/* <!-- Display paragraph: If there are no games in the database --> */}
-                  {/* {comments.length === 0 && <p className="no-comment">No comments.</p>} */}
           </div>
-
-          {/* <!-- Edit/Delete buttons ( Only for creator of this game )  -->
-          <div className="buttons">
-              <a href="#" className="button">Edit</a>
-              <a href="#" className="button">Delete</a>
-          </div> */}
       </div>
-
-      {/* <!-- Bonus -->
-      <!-- Add Comment ( Only for logged-in users, which is not creators of the current game ) --> */}
       <article className="create-comment">
           <label>Add new comment:</label>
           <form className="form" 
           onSubmit={onSubmit}
           >
-              {/* <input type="text" name="username" placeholder="username" /> */}
               <textarea name="comment" value={values.comment} onChange={onChange} placeholder="Comment......"></textarea>
               <input className="btn submit" type="submit" value="Add Comment"/>
           </form>

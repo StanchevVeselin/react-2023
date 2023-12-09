@@ -44,4 +44,16 @@
   color: black;  /* Черен текст за "Blog" */
 }
 
-/* end header__navbar styles */
+#guest a {
+  margin-right: 20px; /* Променен маргин за раздалечаване */
+}
+
+/* Стилове за "User" (Logout и username) */
+#user a {
+  margin-right: 20px; /* Променен маргин за раздалечаване */
+}
+
+/* Стилове за "Basket" */
+.nav-basket-count {
+  margin-right: 20px; /* Променен маргин за раздалечаване */
+}

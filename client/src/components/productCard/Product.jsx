@@ -1,5 +1,4 @@
 import "./product.css"
-import Button from 'react-bootstrap/Button';
 import Card from 'react-bootstrap/Card';
 import { Link } from "react-router-dom";
 import { useCart } from "../../context/cartContext";
@@ -21,7 +20,6 @@ const Product = ({_id,title,price,description}) => {
           </Card.Text>
           <p className="product__price">${price}</p>
           <div className="product__rating"></div>
-          {/* <Button variant="primary">Add to card</Button> */}
           <Link 
           // to={`/add-to-cart/${_id}` } 
           to="#"
@@ -29,7 +27,6 @@ const Product = ({_id,title,price,description}) => {
           className="add-to-cart-button">
             Add to Cart
           </Link>
-          {/* <Button variant="primary">Details</Button> */}
           <Link to={`/products/${_id}`} className="details-button" >Details</Link>
         </Card.Body>
         </Card>
